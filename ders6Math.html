@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        let x = Math.round(6.7) // yuvarlama işlemi yapar
+        Math.pow(x,3) //x üzeri 3
+        Math.sqrt(x) //karekök işlemleri
+        Math.ceil(x) //x i en yakın üst tam sayıya yuvarlar
+        Math.floor(x) //x'i en yakın alt tam sayıya yuvarlar
+        Math.sin(x) //radyan cinsinden açıların sinüsü
+        Math.cos(x)
+        let y =[1,2,3,4,89,32]
+        
+        Math.min(132,32,32) //en düşük değeri döndürür
+        Math.max(123,43,123,4) //en yüksek değeri döndürür
+        document.getElementById("result").innerHTML = x
+
+        Math.random() // 0'dan 1 e kadar random sayı üretir
+
+        /* Date */
+
+        let date = new Date(); //tarihi elde elderiz // numbera çevirip ms cinsini alabiliriz Number(date)
+        //bu sayede işlemlerin kaç sn de oldugunu bulan işlemler yapabiliriz
+        //En güvenilir date ISO tarayıcılarda çalışması açısından
+        document.getElementById("result").innerHTML = date.getDate() +" "+ date.getDay() + " " + date.getFullYear()
+        //date'in get ve set ile başlayan methodları bulunmakta lazım oldukça bak
+        //örneğin günleri türkçe olarak göstermek istersek
+        let days = ["pazar", "pazartes","salı","çarşamba","perşembe","cuma","cumartesi"]
+        document.getElementById("result").innerHTML = days[date.getDay()]
+        //date.set... işlemleri ile tarihe mudahale edebiliriz.
+        //Date.parse() yazılan tarihin ms cinsinden 1970 e kadar olan zamanı verir
+    </script>
+</body>
+</html>

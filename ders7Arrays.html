@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        //.length arrayın uzunlugunu verir
+        let list = ["ahmet", "mehmet", "sefa", "ali"];
+        let list2 = ["veli","selim"]
+        let text = "<ul>";
+        for (let i = 0; i < list.length; i++) {
+            text += "<li>" + list[i] + "</li>" //stringe ek yapabiliriyoruz
+        }
+        list.push("aa") // sona ekleme yapar
+        list[list.length] = "ekledim" //sona ekler
+        //typeOf list object döndürür
+        Array.isArray(list) //liste olup olmadıgı bulunur
+        text += "</ul>";
+        document.getElementById("result").innerHTML = text
+
+        list.join("-") //dizideki elemanları içeriye yazılan işaretle ayırır
+        list.pop() //son öğeyi kaldırır, ve bi değişkene eşitlersek çıkarılan öğeyi döndürür
+        list.shift() //ilk öğeyi kaldırır, öğeleri sola kaydırır
+        list.unshift("hey") //listenin başına eleman ekler
+        list[1] = "hey" // 1. elemanı değiştirdik
+        list.splice(2,0,"ekledik") //2. elemandan sonra ekler indexi 2 oldu eklenen elemanın
+        list.splice(0,2) //0'dan 2. elemana kadar kaldırır, ilk 2 eleman kaldırlır 0,1inci indexleri kaldırır
+        let newArray=list.concat(list2)  //listeleri ekler
+        list.slice(0,2) //diziden istenen aralıktaki elemanları alıp bunları döndürür, orj dizide değişiklik yapmaz
+        document.getElementById("result").innerHTML = newArray
+
+        list.sort() //alfabetik sıralama yapar
+        list.reverse() //listeyi ters çevirir
+
+        let numbers = [1,4,7,3,25,67]
+        numbers.sort(function (a,b) { //sıralama algoritması
+            return a-b
+        })
+        console.log(numbers)
+        //en yüksek ve en düşük değerleri sıralamadan sonra 0. ve sonuncu indexten bulabiliriz
+        //bu yöntem çok sayılı arraylarde yavaşlık yapar
+        console.log(Math.max.apply(null,numbers)) //en yüksek değeri döndürür
+        console.log(Math.min.apply(null,numbers)) //en düşük değeri döndürür
+
+        let computers = [{name:"dell",year:2011},{name:"hp",year:2012},{name:"monster",year:2008}]
+
+        computers.sort(function (a,b) { //dizi içinde objenin bir özelliğine göre sıraladık
+            return a.year -b.year
+        })
+        console.log(computers)
+    </script>
+</body>
+
+</html>

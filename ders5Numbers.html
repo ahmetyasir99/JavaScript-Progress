@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <div id="result"></div>
     <script>
-       let x = 128;
-       let y = x.toString(16) //y'yi x'in hexadecimal numarası olarak çevirir
+        let x = 128.988;
+        let k = "78"
+        let y = x.toString(16) //y'yi x'in hexadecimal numarası olarak çevirir, aynı zamanda toString sayıyı stringe çevirir
+        let z = x.toString(8) //x'nin 8 lik sistemde karşılığı
+       // document.getElementById("result").innerHTML = typeof y + y + z
+        let scientific = x.toExponential() //içeri yazıcağımız sayı virgülden sonra kaç basamak olacağını gösterir.
+        //bilimsel gösterim için kullanılır
+       //js'de nesneler karşılaştırılamaz
+        let fixed = x.toFixed(2) //virgülden sonra kaç basamak gösterilecek onu verir
+        //document.getElementById("result").innerHTML = fixed
+        let precision = x.toPrecision(5) // e harfi olmadan bilimsel gösterim yapar (yüzden büyükse). içine yazılan sayı, sayının kaç
+        //basamağının gösterileceğini belirler örn: orj:10.899 (3) > 10.8 
+        document.getElementById("result").innerHTML = precision
+        document.getElementById("result").innerHTML = x.valueOf() //numaraya çevirir
+        document.getElementById("result").innerHTML = k.valueOf() + typeof k.valueOf()
+        // Number() içine yazılan string sayı içeriyorsa yalnızca, bunu number'a çevirir
+        //parseFloat() ondalıklı sayıya dönüştürür
+        //parseInt() integerea dönüştürür 3.14'ü 3 yapar sadece tam kısmı alır yuvarlamaz, 7'yi 7 yapar, metinlerde kullanılmaz
+        //ilk sayıya denk gelirse onu sayıya çevirir gerisi almaz ama ilk string gelirse nan verir
+        document.getElementById("result").innerHTML = parseInt(2.56)
     </script>
 </body>
+
 </html>
