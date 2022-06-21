@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="cssChange">Bu HTML elementinin CSS'ini değişicem</h2>
+    <p id="result">JS ile HTML' hükmedebilirim</p>
+    <input type="button" value="Bas bakalım" onclick="Process();">
+    <input type="button" value="Open Light" onclick="openLight();">
+    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="Light" id="Picture">
+    <input type="button" value="Close Light" onclick="closeLight();">
+    <input type="button" value="Change CSS" onclick="changeCSS(); otherJs();">
+    <script src="Js/ders1.js"></script>
+    <script>
+        var x,y,z;// x e 10 verip aşağıda bidaha var x=5 dersek x 10 a sahip olur
+        //Nan Not a number
+        // "ben "bir" arıyım" olmaz 'ben "bir" arıyım' ise olur, "" içinde '', '' içinde "" kullanılır
+        // iç içe birçok tırnak işareti olacaksa işaretten önce \ escape sembolü kullanılır, ama bu
+        // her tarayıcıda çalışmıyor. Bu yüzden ayrı ayrı yazıp + ile birlştir
+        //ana etiketlerin içinde kullanılan kodlar birer attribute'dur. örnek id=, onlick=
+        //attribute öznitelik demektir
+        //bu attributelere de etki edebiliyoruz js yardımı ile
+        //script html den sonra yazılmalk çünkü kodlar yukarıdan aşağı doğru
+        //okunuyor.
+        //js "" ile '' kabul eder. Js ile html'de değişiklik yapabiliriz
+        document.write("ilk js kodlarım"+document.getElementById('result').innerHTML) //document dediğimiz bu html sayfası
+        //.innerHTML metodu ile html tagları arasında yazılı olan texti elde edebiliriz.
+        //document.write kullanılırsa tum html leri siler önceki
+        //.innerHTML = 'bla bla' dersek taglar arasındaki değeri buna eşitleriz
+        //alert("bu bir alerttir")
+        let a = 5 //a++ olursa alt satırdan sonra a +1, ++a olursa o satırdan itibaren
+        document.getElementById('result');
+
+        function Process (){
+            document.getElementById('result').innerHTML='JS içeriğe ulaştı ve değiştirdi';
+        }
+        function openLight(){
+            document.getElementById('Picture').src="***";
+            //id'si picture olan html elementinin src attribute'sini değiştirdik
+            // .'dan sonra attibutenin değerini yazmamız yeterli
+        }
+        function closeLight(){
+            document.getElementById('Picture').src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+            //id'si picture olan html elementinin src attribute'sini değiştirdik
+            // .'dan sonra attibutenin değerini yazmamız yeterli
+        }
+        function changeCSS(){
+            document.getElementById('cssChange').style.color="red";
+            document.getElementById('cssChange').style.fontSize="48px";
+            //document.getElementById('cssChange').style.display="none";
+            //css in js de karşılığı arada - olmayan ama ikinci harfinin büyük
+            //olduğu durumdur. Örn: background-color = backgroundColor
+        }
+        let x = 5;
+        let y = "5";
+        //if(x==y) dersek yalnızca değerleri kıyasladığı için koşul sağlanır =! değer eşit değil
+        //if(x===y) dersek değerin yanında türü de kontrol eder, koşul sağlanamaz !== değer ve tür eşit değil
+        !(x==y) // eşit değil durumu
+        // işlem önceliği eşit oldugu duurmlarda soldan saga dogru hesaplanır 1*2/8 de 2/8 yapar
+        // 5e10 10 üzerü 10, 5e-4 10 üzeri -4
+    </script>
+
+    <noscript> Tarayıcınızda JS kapalı durumda, js kapanınca bu tagların
+        arası çalışıyor
+    </noscript>
+</body>
+</html>

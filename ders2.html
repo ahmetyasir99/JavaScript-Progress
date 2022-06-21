@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+    <button type="button" onclick="calculate();">Hesapla</button>
+    <script>
+        show();
+        function calculate(pr1,pr2) {
+            document.getElementById("result").innerHTML = "aloooo"
+            return sum(pr1,pr2) //fonksiyon başka bi fonksiyonun içinde çağırılabilir
+            //sum fonksiyonu değer return etmek zorunda yoksa undefined return eder calculate
+        }
+
+        function sum(par1,par2) {
+            document.getElementById("result").innerHTML = par1 + par2
+            return par1+par2 // js returnu görünce çalışmayı durdurur
+        }
+        //document.write(calculate(1,2))
+        var res = calculate(5,6)
+        document.write(res)
+        sum(1,2);
+        sum(2,5)
+        function show() {
+            alert("bildirim")
+        }
+        
+    </script>
+</body>
+</html>

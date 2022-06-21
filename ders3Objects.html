@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+
+
+
+    <script>
+        //objeler içerisinde fonksiyon barındırabilir, bunlara method denir.
+        //aynı property'leri çağırdığımız gibi bunları da noktalı gösterimle çağırırz
+        var car={
+            name:"BMW",
+            model:"420d",
+            color:"Black",
+            start: function () {
+                return this.name+ "" + this.model + "çalıştırıldı";
+            },
+            drive: function () {
+                return this.name+ "" + this.model + "sürüldü";
+            },
+            break: function () {
+                return this.name+ "" + this.model + "fren yapıldı";
+            },
+            stop: function () {
+                return this.name+ "" + this.model + "durduruldu";
+            }
+        }
+        document.getElementById("result").innerHTML = car.name
+        document.getElementById("result").innerHTML = car.start()  //methodlar () ile çağırılır
+         + "<br>" + car.stop()
+         + "<br>" + car["name"] // propertiler [""] ile de çağırılabilir
+         + "<br>" + car["stop()"]
+
+         // let x = new String() dersek string türünce obje oluşturuyoruz x adında bunu yapma
+    </script>
+</body>
+</html>

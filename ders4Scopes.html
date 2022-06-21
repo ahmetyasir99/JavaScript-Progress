@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p onfocus="Scope()">Gambit</p>
+    <input onfocus="Scope()" type="text">
+    <div id="result">Result</div>
+    <script>
+        //onload, onchange, onclick, onDblClick gibi html atributeleri event olay tetikler bunlarda çlışacak fonksiyonlar
+        //fonksiyonAdı() şeklinde çağırılır
+        //yaygın olan eventler: onchange,onclick,onmouseover,onmouseout,onkeydown,onload, onmouseup,onmousedown (basıldıgında),
+        //onfocus(html elementine basılınca), onblur(html elementinden çekince) inputlarda
+        //onkeyup tuştan kalkınca, onkeydown tuşa basınca
+        //fonksiyon gibi oluşturulmuş scopelardaki değişenlere yalnızca bunun içinden erişilebilir, dışarıdan erişilemez
+        var global = "global Hocam"
+        function Scope() {
+            var a = 60 // dışarıdan erişilemez, dışarıda başka bir a tanımanabiliriz
+            //dışarıda tanımlanmıs değişkene fonksiyon içnide de ulaşabiliriz mesela global
+            b = 40 //bu değişkeni js global olarak algılar çünkü bir ataması yok var, let gibi
+            //bu yüzden dışarıdan erişilebilir.
+            document.getElementById("result").style.color="red"
+        }
+        var text = "Merhaba arkadaşlar burak minecrafttanın yeni bölümüne hoşgeldiniz"
+        document.getElementById("result").innerHTML= text.indexOf("şlar")+"hey" + text.lastIndexOf("niz") + text.search("burak")
+        //search başka parametre almaz, index of da belli bi basamaktan sonrasını göster diyebiliyoruz.
+        document.getElementById("result").innerHTML = text.slice(11,25) //stringden bölüm alır döndürür eksili olursa sondan
+        //text.substr(10,5) ilk parametre kaçıncı elemendan başladığı, ikinci uzunlugu
+        //text.replace("Merhaba", "Selam") replace metodu buldugu ilk birinci parametreyi öbürüyle değiştirir
+        //text.replace("/Merhaba/i", "Selam") olursa büyük küçük harf duyarsız olur
+        //text.replace("/Merhaba/gi", "Selam") olursa büyük küçük harf duyarsız olur ve tüm merhabayı değiştirir
+        //text.toUpperCase(); hepsini büyük harfe çevirir
+        //tüm string methodları orijinal stringi değiştirmez
+        //text.charAt(0) indexdeki harfi verir
+        //string split() methodu ile diziye dönüştürülebilir split(",") olursa virgüle göre ayırarak liste yapar
+        
+        //JS'de ilk başta ondalıklı sayıları tam sayıya çevirip işlem yapıyoru. Sonra onu bölüp ondalıklı sayı yapıyoruz
+        let a = 0.5
+        let b =0.8
+        let c = (a*10 +b*10)/10 //gibi
+        console.log(a + "hhaaa" + b + a) //js bunu string yapıyo b + a yı yapmıyo yanyana koyuyo
+        //biyerde is varsa sorgu ifadesidir
+        console.log(isNaN(a))
+    </script>
+</body>
+</html>
