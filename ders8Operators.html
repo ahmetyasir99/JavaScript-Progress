@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <p id="result"></p>
+    <p><input type="text" id="midterm"></p>
+    <p><input type="text" id="final"></p>
+    <button type="button" onclick="noteResult()">Sonuç</button>
     <script>
         //boolean kontrolünde 0, null,NaN gibi değerler false döner
+        // !(x===5) x'in 5 e eşitliğinin değili
+        let x = 5, result;
+
+        if (x > 3) {
+            console.log("true")
+        } else {
+            console.log("false")
+        }
+
+        result = x => 3 ? "true" : "false" //yukarıdaki if else yapısının kısa hali
+        //bir sayı ile yalnızca sayıdan oluşan string kıyaslanırken js stringi sayıya çevirir
+        //bu durumda == olsa bile true olarak verir
+
+        let midtermNote, finalNote, message, average;
+        function noteResult() {
+            midtermNote = Number(document.getElementById("midterm").value)
+            finalNote = Number(document.getElementById("final").value) // .value inputun içindeki değeri verir
+            average = midtermNote * 0.3 + finalNote * 0.7
+            console.log(average)
+            if (isNaN(midtermNote)) {
+                message = "midtermu giriniz"
+            } else if (isNaN(finalNote)) {
+                message = "finali giriniz"
+            } else {
+                message = (average >= 60) ? "geçtiniz" : "kaldınız"
+            }
+            document.getElementById("result").innerHTML = message
+        }
+
+
     </script>
 </body>
+
 </html>
