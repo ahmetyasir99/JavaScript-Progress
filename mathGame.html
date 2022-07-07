@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="game">
+        <h1>Four Operations Game</h1>
+        <span id="Number1">0</span>
+        <span id="Operator">*</span>
+        <span id="Number2">0</span>
+        <span></span>
+        <input type="text" id="result">
+        <input type="button" id="answer" value="Answer">
+        <div style="clear: both"></div>
+        <div id="True">0</div>
+        <div id="False">0</div>
+        <div style="clear: both"></div>
+    </div>
+<script>
+    let Number1, Number2, Operator, result, answer, True=0, False=0;
+    //Achieving HTML elements
+    Number1 = document.getElementById("Number1");
+    Number2 = document.getElementById("Number2");
+    Operator = document.getElementById("Operator");
+    result = document.getElementById("result");
+    answer = document.getElementById("answer");
+    True = document.getElementById("True");
+    False = document.getElementById("False");
+
+    //function for generating random numbers
+    function RandomNumber(min,max) {
+        let number = (Math.random()*(max-min))+min
+        return number
+    }
+    //New question generating function
+    function newQuestion() {
+        let operation =["+","-","*","/"]
+        //textContent is used for get text content of an html element
+        Operator.textContent=operation[RandomNumber(0,3)] //operator selection
+        Number1.textContent = RandomNumber(0,50)
+        Number2.textContent = RandomNumber(0,50)
+
+        if(Operator == "/"){
+            while (true) {
+                Number2.textContent = (0,50);
+                if(Number1.textContent % Number2.textContent ==0){
+                    break;
+                }
+            }
+        }
+    }
+    //at page loading, call newQuestion function
+    window.onload = function () {
+        newQuestion();
+    }
+
+    answer.onclick = function () {
+        let ans,n1,n2;
+        n1 = Number(Number1.textContent)
+        n2 = Number(Number2.textContent)
+        switch (Operator.textContent) {
+            case "+": ans = n1+n2;break;
+            case "-": ans = n1-n2;break;
+            case "*": ans = n1*n2;break;
+            case "/": ans = n1/n2;break;
+            default: break;
+        }
+    }
+</script>
+    
+</body>
+<style>
+    body{
+        color: #fff;
+        background: #573334;
+    }
+    #game{
+        width: 350px;
+        background: #222;
+        padding: 18px;
+        text-align: center;
+        margin: auto;
+    }
+    h1{
+        margin: 0 0 18px 0;
+        border: solid 1px #fff;
+        padding: 5px;
+        font-weight: 400;
+    }
+    span{
+        font-size: 125%;
+        padding: 12px;
+    }
+    #result{
+        width: 90px;
+    }
+    #answer{
+        margin-top: 10px;
+        padding: 5px;
+        border: none;
+        width: 100px;
+        background: #565613;
+        color: #fff;
+    }
+    #answer:hover{
+        background: #0C5f17;
+    }
+    #True, #False{
+        font-size: 150%;
+        margin-top: 10px;
+        padding: 10px;
+        display: inline-block
+    }
+    #True{
+        background-color: green ;
+    }
+    #False{
+        background-color: red ;
+    }
+</style>
+</html>

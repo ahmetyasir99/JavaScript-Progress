@@ -44,6 +44,20 @@
             document.getElementById("result").innerHTML = message
         }
 
+        var day;
+        var d = new Date().getDay();
+        
+        switch (d) {
+            case 0:
+                day = "pazar"
+                break;
+            case 1:
+                day = "pazartesi"
+            default:
+                day = "böyle bir gün yok"
+                break; //son kısma break koymaya gerek yok
+                //default üstte de olabilir ama sonuna break koymak gerekir
+        }
 
     </script>
 </body>

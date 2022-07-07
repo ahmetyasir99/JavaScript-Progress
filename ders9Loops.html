@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <button type="button" onclick="show()">Button</button>
+</body>
+
+<script>
+    function show() {
+        let i, text = "";
+        let list = ["a", "b", "c", "d", "e", "f", "g", "h"]
+        for (i = 0; i <= 10; i++) { //i'yi 3'er artırırken i+=3 yapıyoruz
+
+            if ((i % 2) == 0) { //çift sayıları yazdırır
+                console.log(i)
+            }
+            // if(i==5){
+            //     ; //for döngüsünden çıkar
+            // }
+            if (i === 4) {
+
+                continue; //döngünün o koşulunu atlar, i 4 ise 4ü yapmaz
+            }
+            document.getElementById("result").innerHTML += "<br>" + i
+        }
+        let result = 1;
+        for (i = 1; i <= 5; i++) {//faktöriyel hesapladık
+            result *= i
+        }
+        console.log(result)
+    }
+
+    let text = "";
+
+    const obj = { a: 1, b: 2, c: 3 };
+
+    for (const prop in obj) { //prop başlı başına nesnenin propertyi
+        //bu yüzden kendi başına çağırınca propertiyi, objeden çağırınca değerini verir
+        console.log(prop + obj[prop]);
+    }
+    let a = 0
+    while (a < 10) {//sonsuz loop tarayıcıyı kilitler
+        document.getElementById("result").innerHTML += "<br>" + a
+        a++
+    }
+    // do while döngüsü koşulun doğru olup olmadığını kontrol etmeden bir kez çalıştırır
+    do {
+        console.log("do while")
+    } while (a > 10); //bu koşul sağlandığı müddetçe de çalışır
+
+    list:{ //labeller herhangi birşeyi isimlendirmek için break veya continue için
+        //kullanılır, örneğin içeriye yazdığımız break list sayesinde list adındaki
+        //labelden çık anlamı taşıyor
+        text+= "ali" + "<br>";
+        text+= "ve" + "<br>";
+        text+= "al32i" + "<br>";
+        text+= "al55i" + "<br>";
+        text+= "a666li" + "<br>";
+        break list;
+        text+= "al666i" + "<br>";
+    }
+    document.getElementById("result").innerHTML = text
+</script>
+
+</html>
