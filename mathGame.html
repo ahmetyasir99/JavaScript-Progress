@@ -34,14 +34,16 @@
 
     //function for generating random numbers
     function RandomNumber(min,max) {
-        let number = (Math.random()*(max-min))+min
+        let number = Math.floor(Math.random()*(max-min))+min
+        console.log(number)
         return number
     }
     //New question generating function
     function newQuestion() {
+        result.value = null;
         let operation =["+","-","*","/"]
         //textContent is used for get text content of an html element
-        Operator.textContent=operation[RandomNumber(0,3)] //operator selection
+        Operator.textContent=operation[RandomNumber(0,4)] //operator selection
         Number1.textContent = RandomNumber(0,50)
         Number2.textContent = RandomNumber(0,50)
 
@@ -70,6 +72,12 @@
             case "/": ans = n1/n2;break;
             default: break;
         }
+        if(result.value==ans){
+            True.textContent = Number(True.textContent)+1;
+        }else{
+            False.textContent = Number(False.textContent)+1;
+        }
+        newQuestion();
     }
 </script>
     
