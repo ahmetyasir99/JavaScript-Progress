@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <script>
+        
+        // x'i değişken olarak tanımlamadan da js de kullanabiliriz.
+        x=5
+        document.getElementById('result').innerHTML = x
+        //ancak "use strict"; dersek tanımadan kullanılmasına engel olur
+        //js'in kurallarının tamamen uygulanmasını sağlar
+        "use strict"; //altına yazılanları denetler
+        //bir fonksiyonun içinde kullanılırsa orada sınırlı kalır
+        //gözden kaçan hatalar için bu fonksiyon kullanılabilir
+        //bu modda delete ile değişken nesne fonksiyon silmesi yapılamaz
+        let obj={};
+        //objeye property atamak için aşağıdaki fonksiyon kullanılır
+        //writable:false olunca property'nin değeri değişmez, use strict
+        //modda bu geçerli
+        Object.defineProperty(obj,"x",{value:5,writable:false});
+
+        //değişkenler scriptin veya fonksiyonun en üstünde toplu tanımlanmalı
+        //ancak tanımlandıgı yer itibariyle global değil özel tanımlanmaya çalışılmalı
+        
+    </script>
+</body>
+</html>
