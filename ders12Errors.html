@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="data">
+    <button type="button" onclick="errors()">Click</button>
+    <p id="result"></p>
+    <script>
+        //try catch hataları test edip yakalamak için kullanılır
+        try {//test edilebilecek bir kod bloğu oluşturur
+            alerd("Js")
+        } catch (error) { //error yerine istenilen parametre girilebilir
+            console.log("hata",error.message) //hata mesajını döndürür
+            //error.name' de bulunur, error nesnesi 2 değer içerir
+        }
+        //throw özel bir hata oluşturulmasına izin verir
+    
+        function errors(params) {
+            let inputValue;
+            inputValue = document.getElementById('data').value;
+            console.log(inputValue)
+            document.getElementById('result').innerHTML=""
+            try {
+                if(inputValue==""){
+                    throw "Bu alanı boş bırakamazsınız";
+                }
+                if (isNaN(inputValue)) {
+                    throw "Bu alana sadece sayı girmelisiniz";
+                } 
+                inputValue = Number(inputValue)
+                if (inputValue<5) {
+                    console.log("küçük")
+                    throw "girilen sayı 5'ten küçük olamaz"
+                } else if(inputValue>15) {
+                    throw "girilen sayı 15'ten büyük olamaz"
+                }
+            } catch (e) {
+                console.log(e)
+                document.getElementById('result').innerHTML=e
+            }finally{
+                //finally'deki kodu çalıştırır, inputu boşaltıyoruz
+                document.getElementById("data").value=""
+            }
+            //finally ifadesi sonuca bakılmaksızın denemek ve yakalamak
+            //için kondu yürütmeye olanak tanır
+        }
+    </script>
+</body>
+</html>
