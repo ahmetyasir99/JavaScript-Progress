@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="openWindow()">Open New Window</button>
+    <button type="button" onclick="resizeWindow()">resize Window</button>
+    <button type="button" onclick="moveWindow()">move Window</button>
+    <button type="button" onclick="closeWindow()">close Window</button>
+    <p id="result"></p>
+    <script>
+        let result,newWindow;
+        result = document.getElementById("result");
+
+        function openWindow() {
+            newWindow = window.open("","new window","width=600, height=400") //yeni pencere açar (url,hangi nesne,boyutlar)
+            newWindow.document.write("bu pencere açıldı") //açılan pencereye yazı yazdık
+            newWindow.open("https://www.javascript.com") //açılan pencerede bir websitesi gösterir
+        }
+        function resizeWindow() {
+            newWindow.resizeTo()//yeniden boyutlandırır
+        }
+        function moveWindow() {
+            newWindow.moveTo() //x ve y olarak pencereyi taşır
+        }
+        function closeWindow() {
+            newWindow.close() //pencereyi kapatır
+        }
+
+        //JSON'lar veri aktarımı için xml'den az yer kapladığı için kullanılır
+        const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+        let parsed = JSON.parse(text)
+        console.log(parsed)
+        //herşey window nesnesi içindedir. mesela window.document.get....
+        let height = window.innerHeight //pencerenin yüksekliği
+        let width = window.innerWidth //pencerenin eni
+        let alternatif = window.innerHeight || document.documentElement.clientHeight //burada ilk kod çalışmazsa ikinci çalışır
+    </script>
+</body>
+</html>

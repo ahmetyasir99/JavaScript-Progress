@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <button type="button" onclick="clicked()" id="externalJS">Call JS</button>
+    <script>
+        var getJS = document.getElementById("externalJS")
+        getJS.onclick = function () { //butona basıldığında harici js dosyası yükler. onclick yukarda da olabilirdi, bu türü de var
+            var scriptCreate = document.createElement("script");
+            scriptCreate.type = "text/javascript"; // <script type=""> yapar
+            scriptCreate.src = "js/ders1.js"; // <script src="js/ders1.js">
+            document.body.appendChild(scriptCreate) //head elementinin sonuna ekler, ama body sonuna eklenmesi daha iyi
+            alert("geldi")
+        }
+
+        window.onload = function () { //sayfa yüklendiğinde bu fonksiyon çalışır
+            var getElement = document.createElement("script"); //body'nin alt kısmına bir script elementi oluşturur. <script>
+            getElement.type = "text/javascript"; // <script type=""> yapar
+            getElement.src = "js/ders1.js"; // <script src="js/ders1.js"> 
+            document.body.appendChild(getElement); //body'nin sonuna çocuğu olarak ekleyecek
+        }
+        //js ve html anahtar kelimelerini değişken olarak kullanmamalı
+    </script>
+</body>
+
+</html>
