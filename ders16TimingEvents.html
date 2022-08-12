@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="deleteTime = setTimeout(process,2000)">click settimeout</button>
+    <button type="button" onclick="clearTimeout(deleteTime)">Stop set</button>
+    <button type="button" onclick="clearInterval(times)">Stop interval</button>
+    <p id="result"></p>
+    <script>
+        //setTimeout() ve setInterval() fonksiyonları
+        //ilk parametre yürütülecek işlemi, ikinci parametre yürütmeden önce geçecek zamanı ms cinsinden belirtir
+        //clearTimeout() set fonksiyonunun işlemini siler
+        let result,times;
+        result = document.getElementById("result");
+        times = setInterval(process,1000);//içine yazılan işlemi belirtilen zaman aralığında bir hep çalıştırır
+        // setInverval ile herzaman çalışmasını istediğimiz işlemleri yapabiliriz. Matematiksel işlemler gibi
+        function process() {
+            var d = new Date();
+            result.innerHTML = d.toLocaleTimeString();
+        }
+    </script>
+</body>
+</html>

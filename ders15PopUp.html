@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="boxes()">Buton</button>
+    <p id="result"></p>
+    <script>
+        //1. alertler
+        alert("uyarı")
+        //2. onay kutuları
+        let result;
+        result = document.getElementById("result");
+        function boxes() {
+            let message, getValue;
+            getValue = prompt("lütfen dersin adını giriniz\nÖrneğin: JS","varsayılan") //kullanıcıdan girdi alan kutucuk
+            if(getValue ==null || getValue ==""){
+                message = "bu alan boş bırakılamaz";
+            }else if (getValue =="JS"){
+                message = "dersin adı" + getValue
+            }
+            // if(confirm("Silmek istediğinize emin misiniz?")==true){
+            //     message = "seçilen öğe silindi"
+            // }else{
+            //     message= "öğe silinmedi"
+            // }
+            result.innerHTML = message;
+        }
+    </script>
+</body>
+</html> 
