@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form id="formBegin">
+    <form id="formBegin" name="formBegin">
         Username: <input type="text" id="username" name="username">
         Password: <input type="text" id="pass" name="pass">
         <button type="button" onclick="printScreen()">Click</button>
@@ -21,6 +21,10 @@
             let valueForm , result
             result = document.getElementById("result")
             valueForm=document.forms[0].length // 0.cı formu getir. formları böyle çağırıyoruz, lenght formda kaç eleman var onu gösteriyor
+            valueForm=document.forms[0].username.value; // formdaki username id'li elementin değerine ulaştı
+            valueForm=document.formBegin.username.value // formun name'inden ulaştı
+            //document.formBegin.username.name dersek nameini çekeriz
+            //valueForm=document.forms[0].elements[0].value ile de formun ilk elemanının değerine ulaşırız
             result.innerHTML = valueForm
         }
     </script>
