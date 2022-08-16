@@ -9,24 +9,34 @@
 </head>
 
 <body>
-    <form id="formBegin" name="formBegin">
-        Username: <input type="text" id="username" name="username">
+    <!-- <form id="formBegin" name="formBegin" action="#" method="post"> -->
+        <!-- action yönlendirilecek yeri belirtir -->
+        Username: <input type="text" id="username" name="username" required>
         Password: <input type="text" id="pass" name="pass">
-        <button type="button" onclick="printScreen()">Click</button>
-    </form>
+        <button type="button" onclick="validateForm()">Click</button>
+    <!-- </form> -->
     <p id="result"></p>
 
     <script>
-        function printScreen() {
-            let valueForm , result
+        function validateForm() {
+            let valueForm , result, valueInput
             result = document.getElementById("result")
             valueForm=document.forms[0].length // 0.cı formu getir. formları böyle çağırıyoruz, lenght formda kaç eleman var onu gösteriyor
             valueForm=document.forms[0].username.value; // formdaki username id'li elementin değerine ulaştı
             valueForm=document.formBegin.username.value // formun name'inden ulaştı
+            valueInput=document.getElementById('username').value //en mantıklısı
             //document.formBegin.username.name dersek nameini çekeriz
             //valueForm=document.forms[0].elements[0].value ile de formun ilk elemanının değerine ulaşırız
             result.innerHTML = valueForm
+
+            if(valueInput==""){
+                result.style.display="block";
+                result.innerHTML = "Kullanıcı adı boş bırakılamaz"
+                return false;
+            }
         }
+
+
     </script>
 </body>
 
