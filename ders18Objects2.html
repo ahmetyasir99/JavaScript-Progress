@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //aynı nesneden birden fazla oluşturulmak istendiğinde constructor yani nesne üreten fonksiyon kullanılır
+        function Person(first,last,age,color) {
+            this.firstName= first; //this kelimesi fonksiyon adındaki person'u temsil ediyor. person.firstName ile this.firstname aynı.
+            this.lastName=last;
+            this.age = age
+            this.eyeColor = color
+            this.fullName = function () {
+                return this.firstName + " " + this.lastName;
+            }
+            this.changeName = function (name) {//nesnenin propertysinde değişiklik yapan fonksiyon
+                return this.firstName = name
+            }
+        }
+        //nesne üretme fonksiyonundan nesneler üretmek
+        
+        
+        var myPerson = new Person("ahmet","cilvez","23","brown")
+        var myPerson2 = new Person("mehmet","sakarya","25","blue")
+
+        
+        //nesneye yeni bir özellik eklerken myPerson.hair = "long" yapısını kullanırız
+        myPerson.hair = "long"
+        delete myPerson.age; //silme işlemi yapar
+        console.log(myPerson.fullName())
+        myPerson.changeName("ali")
+
+        for(i  in myPerson){
+            console.log(myPerson[i]) //nesne içindekiler bu şekilde ulaşırız
+        }
+        var x = person // burada x ve person eşitlenir. X personun kopyası değil kendisi olur. X'in değişmesiyle
+        //person da değişir
+    </script>
+</body>
+</html>

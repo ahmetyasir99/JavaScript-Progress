@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function multi(x,y) {
+            if(y===undefined)
+                y=1 //aynı zamanda parametre yerinde de y=1 yazılabilir
+            return x*y;
+            //arguments.lenght paramentre sayısını gösterir 
+        }
+
+        var multiply = function(x,y) { //fonksiyonlar değişkenlerde saklanabilir
+            return x*y;
+        }
+        var process = function(){
+            return multiply(1,2) + 5
+        }
+        var showMax = function(){//parametrelerin içinde en büyük değeri gösteren fonksiyon
+            var i,max = -Infinity
+            console.log(arguments);//parametreleri gösterir, her çağırmaya özel girileni gösterir
+            for(i=0;i<arguments.length;i++){//kaç parametre girilirse, esnek
+                if(arguments[i]>max){
+                    max = arguments[i]
+                    
+                }
+                
+            }
+            return max
+        } 
+        console.log(showMax(23,45,123,12,211));
+        console.log(showMax(23,123,12,211));
+        console.log(process())
+        
+        //kendi kendini çağıran fonksiyonlar'da bulunmakta
+
+        let person = {
+            first: "ahmet",
+            last:"cilvez",
+            fullName: function () {
+                return this.first + " " + this.last //person.first , person.last
+            }
+        }
+        let people = {
+            first: "ali",
+            last:"demir"
+        }
+        //.call() bağımsız değişkenleri ayrı ayrı, apply argumanları dizi olarak alır
+        var x = person.fullName.call(people) //person objesinin fullname metoduna parametre olarak people nesnesinin içindekileri verir
+        console.log(x)
+    </script>
+</body>
+</html>
