@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="checkCookies()">
+    <div>
+        <p id="result">İlk hali</p>
+        <h2 onclick="changeText(this)">HTML</h2>
+        <h2 onclick="changeText(this)">HTML</h2>
+        <button type="button" id="btn">Click</button>
+
+        <div id="demo" style="height: 200px; width:100px; overflow:scroll" onscroll="scrollEvent()">
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+            <h2>test</h2>
+        </div>
+        <p id="sayi"></p>
+    </div>
+    <script>
+        //eventleri hem html elementinde hemde js kodunda elemente bağlayarak kullanabiliriz.
+        function changeText(arg) {
+            //this parametresi tıklanan h2 tagını temsil etmekte
+            arg.innerHTML = "JavaScript mükemmel"
+        }
+        function changeTextGeneral() {
+            //this parametresi tıklanan h2 tagını temsil etmekte
+            document.querySelector('#result').innerHTML = "JavaScript mükemmel"
+        }
+
+        const btn = document.querySelector('#btn')
+        btn.onclick = changeTextGeneral;
+
+        btn.onclick = function () {
+            //bu şekilde de kullanılır
+        }
+        function checkCookies() {
+            //onload site yüklendiğinde demek
+            let message = "";
+            if(navigator.cookieEnabled ==false){// cookiler kapalı mı
+                message="cookileri açınız"
+            }else {
+                message="cookiler açık"
+            }
+            alert(message)
+        }
+        document.body.onload = function () {
+            alert("hey")
+        }
+        window.onload = function () {
+            //sayfa ilk açıldığında oluşturulmamıs html elementleri js de kullanılmak
+            //istenirken hata verebilir. bu durumda bunları window.onload a koymak mantıklı olabilir
+
+            alert("hey")
+        }
+        let x = 0
+        function scrollEvent() {
+            document.querySelector("#sayi").innerHTML =x++
+        }
+    </script>
+</body>
+</html>

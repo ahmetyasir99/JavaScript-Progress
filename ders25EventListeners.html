@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="result">Javascript ile event listener</div>
+        <button type="button" id="btn">Click</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        const result = document.querySelector('#result');
+        
+        //aynı evente farklı fonksiyonlar atayabiliriz
+        btn.addEventListener('click',showDate);
+        btn.addEventListener('click',mClick);
+        btn.addEventListener('mouseover',mOver);
+
+        // function showDate() {
+        //     result.innerHTML = "Tarih: " + Date()
+        //     alert("Bu bir click olayı")
+        // }
+        // function mOver() {
+        //     //alert("Bu bir click olayı")
+        // }
+        // function mClick() {
+        //     alert("Bu ikinci click olayı")
+        // }
+        window.addEventListener('resize', function () {//pencere boyutu değiştikçe
+            result.innerHTML = Math.random()
+        })
+        let num1 = 7, num2 = 10;
+        btn.addEventListener('dblclick',function () {
+            process(num1,num2)
+        })
+
+        function process(p1,p2) {
+            result.innerHTML = p1*p2 
+        }
+    </script>
+</body>
+</html>

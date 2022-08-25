@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result">Result</p>
+    <p name="resultName">Angular</p>
+    <p name="resultName">Node</p>
+    <p name="resultName2">Vue</p>
+    <p id="result2">Result2</p>
+    <p class="color1">PHP</p>
+    <p class="color">Vuetify</p>
+    <p class="color">html</p>
+    <span class="color1">Turkiye</span>
+    <h5>MySQL</h5>
+    <h5>oracle</h5>
+    <script>
+        // DOM: Document object model
+        // Sayfalara HTML DOM ile hükmedebilir, erişebiliriz.
+        // DOM metodları
+        // HTML DOM elemanlarını bulma
+        var findElement = document.getElementById("result")
+        document.getElementById("result").innerHTML = "hey!"
+        findElement.innerText = "hey"
+        findElement = document.getElementsByName('resultName') // s takısı çoğuldur, name attributu yazılan name olanları çeker
+        alert(findElement[0].innerText)
+        var message = "", i;
+        for (i = 0; i < findElement.length; i++) {
+            message += findElement[i].innerHTML + "\n"; // "<br>" alt satıra atar, n alertte kullanıldı
+        }
+        alert(message)
+
+        findElement = document.getElementsByTagName('h5');
+        alert(findElement[0].innerText)
+
+        findElement = document.getElementsByClassName('color')
+        alert(findElement[0].innerText)
+
+        //querySelector daha mantıklı CSS seçicisidir. bununla herşeye ulaşabiliriz
+        findElement = document.querySelectorAll('.color') //claslar . ile, idler # ile, diğerleri ismi ile
+        //tek elementin classı çağırılacaksa All yazmıyoruz, All dizi döndürür
+        alert(findElement[0].innerText +findElement[1].innerText
+        )
+        //aynı class'dan ikitane varsa hangi element türünün classının alınacağı böyle belirlenir
+        findElement = document.querySelector('span.color1') 
+        findElement = document.querySelectorAll(['name']) //name attributune ait hepsini çağırır, name = farklı olabilir
+        findElement = document.querySelectorAll('[name = resultName2]') //sadece onu çağırır
+        alert(findElement[0].innerHTML)
+    </script>
+</body>
+
+</html>

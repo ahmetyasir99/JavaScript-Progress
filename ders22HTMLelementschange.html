@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="">
+
+        <p id="result"> JavaScript bir harika</p>
+        <img src="bulb.jpg" width="200" alt="Kapali" id="picture">
+        <button type="button" onclick="change()">Change</button>
+        <div id="square">
+            <div id="move"></div>
+        </div>
+
+    </div>
+    <style>
+        #square {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+        #move {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+
+        }
+    </style>
+    <script>
+        function change() {
+            document.querySelector('#picture').src = "bulb2.png" //resmin src attributune müdahale ettik
+            var changeCss = document.querySelector('#result');
+            changeCss.style.color = "white"; //css'e müdahale ediyoruz
+            changeCss.style.backgroundColor = "green";
+            changeCss.style.padding = "15px"
+        }
+        const repeat = setInterval(moving, 10)
+        const move = document.querySelector('#move')
+        var offsets = document.getElementById('square').getBoundingClientRect(); //koordinatları alıyoruz
+        var littleSquare = document.getElementById('move').getBoundingClientRect();
+        let position = 0
+        function moving() {
+            console.log(offsets)
+            position++
+            if (position > (offsets.width - littleSquare.width)) {
+                console.log(move.style.width)
+                clearInterval(repeat)
+            } else {
+                move.style.top = position + "px"
+                move.style.left = position + "px"
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

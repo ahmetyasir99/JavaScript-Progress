@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <p><a href="#" name="lang1">JavaScript</a></p>
+    <p><a href="#" name="lang2">Nodejs</a></p>
+    <p><a href="#" name="lang3">Vuejs</a></p>
+    <p><a href="#" name="lang4">Vuetify</a></p>
+
+    <form name="frmDOM" id="frmDOM">
+        <div class="form-group">
+            <label for="txt1">Value 1</label>
+            <input type="text" name="txt1" id="txt1" value="Node" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="txt2">Value 2</label>
+            <input type="text" name="txt2" id="txt2" value="Js" class="form-control">
+        </div>
+    </form>
+    <button type="button" class="btn" onclick="javascript:getDOM()">Click</button>
+
+    <script>
+        //form hakkında verileri elde etme fonksiyonu
+        function getDOM() {
+            console.log("clicked");
+            var findElement,i,message="",result;
+            findElement = document.forms["frmDOM"];
+            for(i=0;i<findElement.length;i++){
+                message+=findElement[i].value;
+            }
+           result= document.querySelector('#result')
+           result.innerHTML=findElement.length + " " + message;
+           
+        }
+        alert(document.anchors.length) //a tagı
+        alert(document.documentElement.innerHTML) //document'te ne varsa gösterir
+        document.images.length //document.images[0].src images ile resimlere erişiriz
+        document.scripts.length
+
+
+    </script>
+</body>
+</html>
