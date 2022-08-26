@@ -21,16 +21,16 @@
         btn.addEventListener('click',mClick);
         btn.addEventListener('mouseover',mOver);
 
-        // function showDate() {
-        //     result.innerHTML = "Tarih: " + Date()
-        //     alert("Bu bir click olayı")
-        // }
-        // function mOver() {
-        //     //alert("Bu bir click olayı")
-        // }
-        // function mClick() {
-        //     alert("Bu ikinci click olayı")
-        // }
+        function showDate() {
+            result.innerHTML = "Tarih: " + Date()
+            alert("Bu bir click olayı")
+        }
+        function mOver() {
+            //alert("Bu bir click olayı")
+        }
+        function mClick() {
+            alert("Bu ikinci click olayı")
+        }
         window.addEventListener('resize', function () {//pencere boyutu değiştikçe
             result.innerHTML = Math.random()
         })
@@ -42,6 +42,15 @@
         function process(p1,p2) {
             result.innerHTML = p1*p2 
         }
+        //eventlistener kabarcıklanma ve yakalama olayları
+        window.addEventListener('resize', function () {//pencere boyutu değiştikçe
+            result.innerHTML = Math.random()
+        },true) //dersek önce dışarıdakı üstteki elementteki olayı sonra içteki olayı yakalar
+        //false olursa tam tersi. Üst üste binen "parent child" elemanlar için geçerli
+        //innerHTML ile içeri html kodları yazabiliyoruz
+        btn.removeEventListener('click',mClick) //click eventini, showdate fonksiyonundan kaldır
+        //örneği bu metodları tarayıcı desteklemiyor ve başka kod yazılacak ise, if(btn.addEventListener('click',mClick))
+        //yapılıp else çalışmadıgı halinde çalışması istenen kodları yazarız
     </script>
 </body>
 </html>
