@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="">
+            <div>
+                <textarea name="message" id="message"></textarea>
+                <p id="result"></p>
+            </div>
+        </form>
+    </div>
+    <script>
+let message,result,character,characterLength
+message = document.querySelector('#message')
+result = document.querySelector('#result')
+
+message.addEventListener('keydown', ()=>{
+    characterLength = this.value.length
+    if(character >= characterLength){
+        let lastLength = character - characterLength;
+        result.textContent = lastLength + "karakter kaldı"
+    }else {
+        this.value = this.value.substr(0,character);
+    }
+})
+
+message.addEventListener('keyup',() =>{
+    characterLength = this.value.length
+    if(character >= characterLength){
+        let lastLength = character - characterLength;
+        result.textContent = lastLength + "karakter kaldı"
+    }else {
+        this.value = this.value.substr(0,character);
+    }
+})
+message.onkeydown = characterControl
+message.onkeyup = characterControl
+function characterControl() {
+    characterLength = this.value.length
+    if(character >= characterLength){
+        let lastLength = character - characterLength;
+        result.textContent = lastLength + "karakter kaldı"
+    }else {
+        this.value = this.value.substr(0,character);
+    }
+   
+    
+}
+    </script>
+</body>
+</html>

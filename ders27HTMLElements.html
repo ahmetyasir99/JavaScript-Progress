@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="p3"></p>
+    </div>
+    <script>
+        const p = document.createElement('p') //p elementi oluşturur
+        const parentDiv = document.querySelector('#parent')
+        const p3 = document.querySelector('#p3')
+        parentDiv.appendChild(p) //elementi belirtilen elementin altına atar
+        //append child en son çocuk olarak ekler, en alta ekler
+        let text = document.createTextNode("javascript") //metin düğümü oluşturur
+        p.appendChild(text) //p'nin içine texti yazar
+        parentDiv.insertBefore(p,p3 ) // p elementini p3 alt elementinden bir önceye ekler
+
+        parentDiv.removeChild(p3) //elementi parentinden kaldırır
+        p.remove() // direk elementi siler
+        parentDiv.replaceChild(p3,p) //p3ü kaldırıp yerine p'yi koyar
+        p3.replaceWith(p) //elementleri değiştirir
+
+        // selectbox'larda hangi seçeneğin seçili oldugunu bulmak için:
+        // selectboxElementi.selectedIndex = kaçıncı elemente tıkladın
+        // selectboxElementi.option[Index].value
+
+        //checkbox işlemleri
+        //checkboxElementi.checked = true veya false olarak tıklanıp tıklanmadıgını verir
+        
+    </script>
+</body>
+</html>
