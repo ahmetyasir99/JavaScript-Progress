@@ -144,6 +144,53 @@
         }
         achieved.Message()
 
+        //template literals
+        let first = "ahmet", last = "mehmet"
+        //değişkenler string ifadelere böyle yazılır
+        console.log(`Onun adı: ${first} ${last}`)
+        //içeride matematiksel işlemler de yapılır x*y gibi, 10*5 gibi
+        //spread operator
+        //for döngüsü yerine 3 nokta koyarsak elemanları getirir
+        let langs = ["Js", "node","php","html","css"]
+        console.log(...langs); //for d
+        let langs2 =["python","c++","c"]
+        let joinArray = [langs,langs2]
+        console.log(joinArray)
+        // iki dizi birleştirdik
+        joinArray = [...langs,...langs2]
+        console.log(joinArray)
+
+        let numbers = [1,2,3]
+        function sum(x,y,z) {
+            return x+y+z
+        }
+        
+        console.log(sum(...numbers));
+        // For of kullanımı for in kullanımı
+        let player = {firstName: "Ahmet",lastName:"Yasir",age:23}
+        for(let i in player) // for döngüsünün kısaltılmış hali nesneler diziler gibi çekiliyor
+        console.log(player[i])
+
+        player = ["ahmet","yasir",23]
+        for(let i of player) //direk i kullanılır, nesnelerde kullanılmıyor
+            console.log(i)
+
+        // yield fonksiyonlarda işlemlerin sırayla yapılmasını sağlar
+
+        function* gen() {
+        yield   console.log("Hello")
+        yield   "World"
+                console.log("normal");
+        }
+
+        let gen2 = gen()
+        gen2.next() //ilk işlemi yapar
+        console.log(gen2.next()) //işlemin yapılıp yapılmadıgını gösterir, nesne döndürür
+        gen2.next() //ikinci
+        gen2.next() //üçüncü
+        
+        for(let item of gen()) //baiında yield olanları alır, string ise döndürür değilse undefined veriyor
+        console.log(item);
     </script>
 </body>
 

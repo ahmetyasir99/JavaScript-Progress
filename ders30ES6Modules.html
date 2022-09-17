@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="module" src="/Js/ders1.js">
+
+        // modüller fonksiyon veya değişken kütüphaneleri oluşturmaya yararlar.
+        // oluşturulan kaynak js dosyasında dışarı iletilmek istenen fonksiyon veya değişkenlerin başına
+        // export ifadesi eklenir. Daha sonra export edilen bu elemanlar başka dosyada import edilerek kullanılabilir
+        // bu işlemler için sunucu gerkelidir
+
+        //export const name = "ahmet" kaynak dosyası için
+        //export const sum = (x,y) => {return x+y}
+        // import {name} from './ders2' kullanılcak dosya için
+        // console.log(name)
+
+        //eğer çok fazla şey import edeceksek direk
+        // import * as lib from './ders2.js' gibi  bir kullanım yaparak kullanılcak elemanların lib.'eleman' şeklinde
+        // çağırılmasının sağlarız
+        // eğer module olarak isimsiz bir şey export edersek
+        // export default (x,y) => {return x*y} şekilde export edip diğer dosyada
+        //import multi from './ders2.js' şeklinde çağırılır. ve çağırılan dosyada multi() olarak bu fonksiyon kullanılabilir
+
+        //export default ile belirtildikten sonra normal export edilen şeylerin çağırılması eskisi gibi olur. Import işlemi:
+        // import multi, {x} from './ders2.js'; ile tamamlanır  
+    
+        // class'ların import ve exportu
+        // 📁 user.js
+        // export default class User { // just add "default"
+        //   constructor(name) {
+        //     this.name = name;
+        //   }
+        // }
+
+        // 📁 main.js
+        // import User from './user.js'; // not {User}, just User
+
+        // new User('John');
+
+        //map nesnesi değer çiftleri barındıran öğeler içerir, set nesnesi de 
+    </script>
+</body>
+</html>

@@ -7,3 +7,7 @@ function otherJs() {
 function Welcome() {
     alert("hoşgeldin")
 }
+
+// import {name} from './ders2'
+
+// console.log(name)

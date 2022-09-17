@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let text = "Javascript güzel bir dildir";
+        console.log(text.repeat(4)) // stringi tekrar eder
+        console.log(text.startsWith("Javascript")) // bir stringin başındaki kelimeyi test eder.
+        console.log(text.endsWith("dir")) // sonda var mı
+        console.log(text.includes("güzel")) //aranan kelime cümlede geçiyor mu?
+        //isFinite sayı mı değil mi onu verir true false olarak, isNaN'ın tersi isNaN, true false u sayı olarak görür
+        console.log(Number.isFinite("7"),Number.isFinite(7),Number.isFinite(1.2),Number.isFinite(true))
+        Number.isInteger() //tam sayı kontrolü
+        Number.isSafeInteger() //daha hassasmış
+
+        let langs = ["js","python","html","css"];
+        langs.forEach(function (par,index) {
+            console.log(par,index) //ikinci parametre index verir
+        })
+        
+    </script>
+</body>
+</html>

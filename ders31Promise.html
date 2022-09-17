@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // resolve ve reject parametrelerine istediğimizi yazabiliriz ama sırası önemli
+        // promise bir işlemin sonucunu temsil eden bir javascript nesnesidir 
+        // promiseler çağırılmadan direk çalışır.
+        const promise1 = new Promise((resolve, reject) => {
+            // if else yapısı ile resolve ve rejectin ikiside eklenebilir
+           //resolve("Veriler alındı");
+            reject("Bağlantı hatası")
+            console.log("çağırmadım")
+        });
+        //console.log(promise1)
+        promise1.then(value =>{//promise resolve döndürürse .then çalışır
+            console.log(value)
+        })
+        //parametre olarak gelen error anlaşılan promise fonksiyonunun içindeki
+        //reject fonksiyonunun içine yazdığımız ifade.
+        promise1.catch(error =>{
+            console.log(error)
+        })
+        // promise1.then().catch() şeklinde yazılabilir
+        //birden çok promise varsa
+
+        Promise.all([promise1]).then().catch() //promise1'in yanına virgüller diğerleri de yazılır
+        // tüm promislerin bitmesini bekler. Sonuncunun sonucunu döndürür
+        Promise.race([promise1,promise2]).then().catch() // ilk hangisi biterse onu çalıştırır
+    </script>
+</body>
+</html>
