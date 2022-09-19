@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //JSON'lar verilerin yazı halidir
+        //JSON verilerin metin olarak saklanmasını depolanmasını sağlar
+        //veriler JSON formatında sunucuya yollanıp alınır
+        //localde bu veriler tekrardan javascript nesnesine dönüştürülür
+        let obj, sendJSON, takeJSON;
+        //veri ya tek satır olacak ya da + operatörü ile birleştirilcek
+        takeJSON = '{"firstName": "Ahmet", "lastName" : "Yasir"}'; //JSON verisi
+        console.log(takeJSON)
+        obj = JSON.parse(takeJSON) //JSON javascript nesnesine dönüşüyor
+        console.log(obj)
+        obj = JSON.stringify(obj) //nesneyi json formatına dönüştürür
+        console.log(obj)
+        // sendJSON = JSON.stringify(obj);
+        // console.log(sendJSON)
+
+        //The localStorage object stores data with no expiration date.
+
+        //The data is not deleted when the browser is closed, 
+        //and are available for future sessions.
+
+
+        //localStorage.setItem(key, value);
+        //let lastname = localStorage.getItem(key);
+        //localStorage.removeItem(key);
+
+        const arrayJson = {
+            "writers": [
+                { "firstName": "Ahmet", "lastName": "Yasir" },
+                { "firstName": "Ahmet", "lastName": "Yasir" },
+                { "firstName": "Ahmet", "lastName": "Yasir" }
+            ],
+        };
+        const person = {
+            "firstName": "Ahmet",
+            "lastName": "Yasir",
+            "Age": 7,
+            "info": { "weight": 70, "hair": "black" }
+        };
+        for (let i in person)  {
+            console.log(i, person[i]) //objedeki keyleri nokta ile değil böyle çağırırız
+        }
+        //json verilerinin dizi şeklinde çekilmesi önerilir . yerine
+
+        person["firstname"]
+        let deneme =["ali","veli","mehmet"]
+        for(let i in deneme){ // in ifadesi dizilerde of gibi indexi verir
+            console.log(i);
+        }
+
+
+    </script>
+</body>
+
+</html>
