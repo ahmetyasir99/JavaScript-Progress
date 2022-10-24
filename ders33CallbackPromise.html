@@ -7,9 +7,36 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            transition: all 0.5s;
+        }
+        .box.bigger {
+            width: 300px;
+            height: 300px; 
+        }
+
+        .box.circle {
+            border-radius: 50%;
+        }
+
+        .box.move {
+            transform: translateX(300px);
+        }
+
+        .box.colored {
+            background: rebeccapurple;
+        }
+    </style>
     <ul id="todoList"></ul>
+
+    <div class="box"></div>
+
     <!-- <script src="callback.js"></script> -->
-    <!-- <script src="promise.js"></script> -->
-    <script src="async_await.js"></script>
+    <script src="promise.js"></script>
+    <!-- <script src="async_await.js"></script> -->
 </body>
 </html>

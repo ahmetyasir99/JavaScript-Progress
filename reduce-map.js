@@ -63,12 +63,20 @@ class person {
     }
 }
 
-const hazal = new person("hazal","22","50")
-hazal.setAge(24)
+const mehmet = new person("hazal","22","50")
+mehmet.setAge(24)
 
-console.log(hazal.age)
+console.log(mehmet.age)
 
 const button = document.querySelector('#button')
 button.onclick =  () => {
     console.log("basıldı")
 }
+
+
+fetch('https://dummyjson.com/products/1', {
+    mode: 'no-cors'
+})
+.then(res => res.json())
+.then(json => console.log(json))
+            
